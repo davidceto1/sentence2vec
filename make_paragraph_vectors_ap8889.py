@@ -20,9 +20,9 @@ corpus = 'ap8889_cleaned_paragraphs.txt'
 
 for dimensionSize in range(100,1000,100):
     for windowSize in [5,10]:
-        logging.info("computing Paragraph vectors for configuration s="+dimensionSize+" and w="+windowSize)
+        logging.info("computing Paragraph vectors for configuration s="+str(dimensionSize)+" and w="+str(windowSize))
         model = Word2Vec(LineSentence(corpus), size=dimensionSize, window=windowSize, sg=0, min_count=5, workers=8)
-        model.save_word2vec_format("vectors_ap8889_paragraph2vec_s"+dimensionSize+"_w"+windowSize + '.txt')
+        model.save_word2vec_format("vectors_ap8889_paragraph2vec_s"+str(dimensionSize)+"_w"+str(windowSize) + '.txt')
 
 program = os.path.basename(sys.argv[0])
 logging.info("finished running %s" % program)
